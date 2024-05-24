@@ -1,17 +1,46 @@
 # TTS文字转语音
-基于edge_tts的TTS文字转语音模块，使用fastapi创建api接口
+
+基于edge_tts的TTS文字转语音模块，使用fastapi创建api接口。请求成功后返回: ```音频文件(.mp3)```和```字幕文件(.srt)```
 
 ### 安装库：
+
 ```python
 pip install -r requirements.txt
 ```
+
 ### 运行：
+
 ```python
 python main.py
 ```
 
 ### 文档地址：
+
 运行后访问：```http://127.0.0.1:8000/docs```
+
+
+## 请求：
+
+```curl
+curl -X 'POST' \
+  'http://127.0.0.1:8000/generate-tts' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "text": "于谦，忠心义烈，与日月争光。 讲事功，于少保挽狂澜于既倒，扶大厦于将倾。 土木堡之变，朝野震荡，若非于少保一力支撑，中国历史上就是北明南明。",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "output_dir": "/www/wwwroot/python/tts_fastapi/"
+}'
+```
+
+## 返回值：
+```
+{
+  "message": "成功生成TTS和字幕",
+  "audio_file": "/www/wwwroot/python/tts_fastapi/output.mp3",
+  "subtitle_file": "/www/wwwroot/python/tts_fastapi/output.srt"
+}
+```
 
 ### 可选择的说话人:
 
