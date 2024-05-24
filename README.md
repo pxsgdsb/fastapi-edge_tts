@@ -1,5 +1,18 @@
 # 基于edge_tts的TTS 文字转语音 的fastapi接口
 
+
+### 安装库：
+```python
+pip install -r requirements.txt
+```
+### 运行：
+```python
+python main.py
+```
+
+### 文档地址：
+运行后访问：```http://127.0.0.1:8000/docs```
+
 ### 可选择的说话人:
 
 ```
