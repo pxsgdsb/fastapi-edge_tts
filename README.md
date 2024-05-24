@@ -1,5 +1,5 @@
-# 基于edge_tts的TTS 文字转语音 的fastapi接口
-
+# TTS文字转语音
+基于edge_tts的TTS文字转语音模块，使用fastapi创建api接口
 
 ### 安装库：
 ```python
