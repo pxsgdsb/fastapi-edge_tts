@@ -30,6 +30,8 @@ async def generate_tts(request_data: TTSRequest):
     try:
         output_file = os.path.join(output_dir, "output.mp3")
         webvtt_file = os.path.join(output_dir, "output.srt")
+        # 确保路径中的目录都已创建
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
         await amain(text, voice, output_file, webvtt_file)
         return {"message": "成功生成TTS和字幕", "audio_file": output_file, "subtitle_file": webvtt_file}
     except Exception as e:
@@ -59,6 +61,8 @@ async def amain(text: str, voice: str, output_file: str, webvtt_file: str) -> No
 
 # 解析str字幕块
 def generate_srt(subs: str) -> str:
+    # 将 "WEBVTT" 替换为空字符串
+    subs = subs.replace("WEBVTT", "")
     lines = subs.strip().split("\r\n")
     srt_subs = ""
     count = 1

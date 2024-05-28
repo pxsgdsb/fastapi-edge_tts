@@ -42,7 +42,7 @@ curl -X 'POST' \
 }
 ```
 
-### 可选择的说话人:
+### 可选择的朗读音色:
 
 ```
 Name: af-ZA-AdriNeural
